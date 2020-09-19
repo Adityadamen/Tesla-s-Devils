@@ -1,0 +1,121 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>PCOS PREDICTOR</title>
+
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta name="description" content="">
+	<meta name="keywords" content="">
+	<meta name="author" content="Tooplate">
+	<meta name="viewpoint" content="width=device-width, intial-scale=1, maximum-scale=1">
+	<link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+	<link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">
+	<link rel="stylesheet" href="{% static 'css/animate.css' %}">
+	<link rel="stylesheet" href="{% static 'css/owl.carousel.css' %}">
+	<link rel="stylesheet" href="{% static 'owl.theme.default.min.css' %}">
+
+</head>
+<body id="top" data-spy="scroll" data-target=".navbar-collapse" data-offset="50">
+
+	<div class="container">
+	<!--MENU-->
+	<header>
+		<section class="navbar navbar-default navbar-static-top" role="navigation" style="align-items: center;">
+			<div class="container">
+				<div class="navbar-header">
+					<button class="navbar-toggle" data_toggle="collapse" data-target=".navbar-collapse">
+						<span class="icon icon-bar"></span>
+						<span class="icon icon-bar"></span>
+						<span class="icon icon-bar"></span>
+					</button>
+					<!--LOGO TEXT HERE-->
+					<a href="index.html" class="navbar-brand"><i class="fa fa-h-square"></i>PCOS Prediction</a>
+			</div>
+
+			<!--MENU LINKS-->
+			<div class="collapse navbar-collapse">
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="/" class="smoothScroll">Home</a></li>
+					<li><a href="viewDataBase/" class="smoothScroll">View Database</a></li>
+				</ul>
+			</div>
+		</section>
+	</header>
+	</div>
+
+		<!--HOME-->
+	<div class="container">
+		<h2>Check For Symptoms of PCOS Instantly</h2>
+	
+
+		<h3>Please Enter Details</h3>
+		<h3> 0 means "No" and 1 means "Yes"</h3>
+		<br>
+		<form method="post" enctype="multipart/form-data" action="classifyPCOS">
+ 	 {% csrf_token %}
+ 	 <div class="col-md-4 col-sm-4"><label for="fname">Age (yrs):</label> </div> <input name="Age" type="integer" value={{temp.Age}}><br><br>
+ 	 <div class="col-md-4 col-sm-4"><label for="lname">BMI:</label> </div> <input type="integer" id="lname" name="BMI" value={{temp.BMI}}><br><br>
+ 	 <div class="col-md-4 col-sm-4"><label for="fname">Cycle (R/I):</label> </div> <input type="float" id="fname" name="Cycle" value={{temp.Cycle}}><br><br>
+ 	 <div class="col-md-4 col-sm-4"><label for="lname">Weight Gain (Y/N):</label> </div> <input type="integer" id="lname" name="Weightgain" value={{temp.Weightgain}}><br><br>
+ 	 <div class="col-md-4 col-sm-4"><label for="fname">Hair Growth (Y/N):</label></div>  <input type="integer" id="fname" name="hairgrowth" value={{temp.hairgrowth}}><br><br>
+ 	 <div class="col-md-4 col-sm-4"><label for="lname">Skin Darkening (Y/N):</label> </div> <input type="integer" id="lname" name="Skindarkening" value={{temp.Skindarkening}}><br><br>
+ 	 <div class="col-md-4 col-sm-4"><label for="fname">Hair Loss (Y/N):</label></div>  <input type="integer" id="fname" name="Hairloss" value={{temp.Hairloss}}><br><br>
+ 	 <div class="col-md-4 col-sm-4"><label for="lname">Pimples (Y/N):</label> </div> <input type="integer" id="lname" name="Pimples" value={{temp.Pimples}}><br><br>
+ 	 <div class="col-md-4 col-sm-4"><label for="fname">Fast food (Y/N):</label></div>  <input type="integer" id="fname" name="Fastfood" value={{temp.Fastfood}}><br><br>
+ 	 <div class="col-md-4 col-sm-4"><label for="lname">Regular Exercise (Y/N):</label> </div> <input type="integer" id="lname" name="RegExercise" value={{temp.RegExercise}}><br><br>
+ 	 <input type="submit" value="Submit">
+
+	{% if scoreval %}
+	<br>
+	{% if scoreval %}
+	<h1>The PCOS Prediction is (0: Does Not Need Checkup) and (1: Need Checkup) ----- Need Checkup</h1>
+	<h3>Do you want to save it in DB?</h3>
+	<input type="hidden" id="lname" name="PCOS" value={{scoreval}}>
+	<input type="submit" value="Submit"> </div>
+	{% else %}
+	<input type="submit" value="Submit"> </div>
+	{% endif %}
+	</form>
+	<br>
+	{% endif %}	
+	</div>
+
+<!--Footer-->
+	<footer data-stellar-background-ratio="5">
+		<div class="container">
+			<div class="row">
+				
+				<div class="col-md-12 col-sm-12 border-top">
+					<div class="col-md-4 col-sm-6">
+						<div class="copyright.text">
+							<p>Copyright</p>
+						</div>
+					</div>
+					<div class="col-md-6 col-sm-6">
+						<div class="footer_link">
+							<a href="#">Save</a>
+						</div>
+					</div>
+					<div class="col-md-2 col-sm-2 text-align-center">
+						<div class="angle-ip-btn">
+							<a href="#top" class="smoothScroll wow dadeInUp" data-wow-delay="1.2s"><i class="fa fa-angle-up"></i></a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</footer>
+
+	<script src="{% static 'js/jquery.js' %}"></script>
+	<script src="{% static 'js/bootstrap.min.js' %}"></script>
+	<script src="{% static 'js/jquery.sticky.js' %}"></script>
+	<script src="{% static 'js/jquery.stellar.min.js' %}"></script>
+	<script src="{% static 'js/wow.min.js' %}"></script>
+	<script src="{% static 'js/smoothScroll.js' %}"></script>
+	<script src="{% static 'js/owl.carousel.min.js' %}"></script>
+	<script src="{% static 'js/custom.js' %}"></script>
+
+</body>
+</html>

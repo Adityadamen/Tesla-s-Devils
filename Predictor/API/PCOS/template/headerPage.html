@@ -1,0 +1,91 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>PCOS PREDICTOR</title>
+
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta name="description" content="">
+	<meta name="keywords" content="">
+	<meta name="author" content="Tooplate">
+	<meta name="viewpoint" content="width=device-width, intial-scale=1, maximum-scale=1">
+	<link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+	<link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">
+	<link rel="stylesheet" href="{% staitc 'css/animate.css' %}">
+	<link rel="stylesheet" href="{% static 'css/owl.carousel.css' %}">
+	<link rel="stylesheet" href="{% static 'owl.theme.default.min.css' %}">
+
+</head>
+<body id="top" data-spy="scroll" data-target=".navbar-collapse" data-offset="50">
+
+	<div class="container">
+	<!--MENU-->
+	<header>
+		<section class="navbar navbar-default navbar-static-top" role="navigation" style="align-items: center;">
+			<div class="container">
+				<div class="navbar-header">
+					<button class="navbar-toggle" data_toggle="collapse" data-target=".navbar-collapse">
+						<span class="icon icon-bar"></span>
+						<span class="icon icon-bar"></span>
+						<span class="icon icon-bar"></span>
+					</button>
+					<!--LOGO TEXT HERE-->
+					<a href="index.html" class="navbar-brand"><i class="fa fa-h-square"></i>PCOS Prediction</a>
+			</div>
+
+			<!--MENU LINKS-->
+			<div class="collapse navbar-collapse">
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="/" class="smoothScroll">Home</a></li>
+					<li><a href="viewDataBase/" class="smoothScroll">View Database</a></li>
+				</ul>
+			</div>
+		</section>
+	</header>
+	</div>
+
+		<!--HOME-->
+<div class="container">
+	{% block content%}
+	<h3>The number of records in DB are {{countOfrow}}</h3>
+	{% endblock %}
+</div>
+	
+	<!--Footer-->
+	<footer data-stellar-background-ratio="5">
+		<div class="container">
+			<div class="row">
+				
+				<div class="col-md-12 col-sm-12 border-top">
+					<div class="col-md-4 col-sm-6">
+						<div class="copyright.text">
+							<p>Copyright</p>
+						</div>
+					</div>
+					<div class="col-md-6 col-sm-6">
+						<div class="footer_link">
+							<a href="#">Save</a>
+						</div>
+					</div>
+					<div class="col-md-2 col-sm-2 text-align-center">
+						<div class="angle-ip-btn">
+							<a href="#top" class="smoothScroll wow dadeInUp" data-wow-delay="1.2s"><i class="fa fa-angle-up"></i></a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</footer>
+
+	<script src="{% staitc 'js/jquery.js' %}"></script>
+	<script src="{% staitc 'js/bootstrap.min.js' %}"></script>
+	<script src="{% staitc 'js/jquery.sticky.js' %}"></script>
+	<script src="{% staitc 'js/jquery.stellar.min.js' %}"></script>
+	<script src="{% staitc 'js/wow.min.js' %}"></script>
+	<script src="{% staitc 'js/smoothScroll.js' %}"></script>
+	<script src="{% staitc 'js/owl.carousel.min.js' %}"></script>
+	<script src="{% staitc 'js/custom.js' %}"></script>
+
+</body>
+</html>
